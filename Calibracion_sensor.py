@@ -10,3 +10,4 @@ while True:
     # Convertir a un rango de 0 a 1023 similar a Arduino si es necesario
     scaled_value = sensor_value // 64  # Dividir por 64 para obtener un rango de 0 a 1023
     print("Nivel de agua (valor analógico):", scaled_value)
+    time.sleep(1)  # Esperar 1 segundo antes de la siguiente lectura
