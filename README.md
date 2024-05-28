@@ -79,3 +79,22 @@ while True:
         print("Todo en orden. Nivel de agua: {} (escala 0-5)".format(nivel_agua))
     
     time.sleep(1)
+```
+
+## Uso
+
+- **Conectar el hardware:**
+
+    - Asegúrese de que todas las conexiones estén correctas según la sección de conexiones.
+
+- **Iniciar el sistema:**
+
+    - Conecte el microcontrolador a la fuente de alimentación.
+    - El sistema comenzará a medir el nivel de agua y a leer los datos de UART automáticamente.
+
+- **Monitorizar la salida:**
+
+    - Observe los mensajes impresos en la consola serie para ver el nivel de agua y las alertas.
+
+## Contribuciones
+Las contribuciones son bienvenidas. Por favor, envíe un pull request o abra un issue para discutir cualquier cambio que desee realizar.
