@@ -19,6 +19,11 @@ while True:
         uart_data_str = uart_data.decode().strip()  # Decodificar y eliminar espacios en blanco
         try:
             uart_led_count = int(uart_data_str)  # Intentar convertir la cadena a un entero
+            # Medir el nivel de agua
+            sensor_value = sensor_pin.read_u16()
+            scaled_value = sensor_value // 100
+            nivel_agua = map_value(scaled_value, 0, 650, 0, 10)
+            # Comparar el recuento de LED con el nivel de agua
             if uart_led_count > nivel_agua:
                 print("Alerta: Más LEDs encendidos de lo esperado!")
             else:
