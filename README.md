@@ -34,4 +34,4 @@ El sistema mide el nivel de agua a través de un sensor conectado al pin analóg
    - Use un IDE como Thonny para copiar y pegar el código en un nuevo archivo y guárdelo como `main.py` en su microcontrolador.
 3. **Alambrar el sistema>**
    - Alambrar la Pico w asi como el sensor de agua -tierra -voltaje y -datos
-   - Si se requiere alambrar tambien los puertos UART para la resepcion y envio de datos.(seguir el esquema Sensor_Agua.jpg) 
+   - Si se requiere alambrar tambien los puertos UART para la resepcion y envio de datos.(seguir el esquema [Sensor_Agua.jpg](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/blob/Noe/Sensor_Agua.jpg)) 
