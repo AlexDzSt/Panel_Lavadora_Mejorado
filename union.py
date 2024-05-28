@@ -26,7 +26,16 @@ while True:
         nivel = "Nivel 4: Alto"
     
     # Mostrar el nivel de agua alcanzado
-    print("Nivel de agua alcanzado:", nivel)
+    print("Nivel de agua actual:", nivel)
+    
+    # Retornar verdadero si el nivel de agua es 3, de lo contrario falso
+    if nivel_agua == 3:
+        print("Nivel de agua alcanzado")
+        resultado = True
+    else:
+        resultado = False
+    
+    print("Resultado:", resultado)
     
     # Esperar 2 segundos antes de la siguiente lectura
     time.sleep(2)
