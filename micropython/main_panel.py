@@ -14,6 +14,8 @@ oled = SSD1306_I2C(128, 64, i2c)
 
 prev_data = None  # Inicializa prev_data fuera del bucle
 
+actions.test_wifi()
+
 while True:
     if uart.any():
         data = uart.read().decode('utf-8').strip()  # Elimina espacios en blanco alrededor del mensaje
