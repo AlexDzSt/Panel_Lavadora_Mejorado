@@ -32,3 +32,34 @@ The system can receive data via UART to compare the measured water level with an
 _Rotary LED Display_
 
 The system includes a rotary LED display consisting of seven segments, which can be controlled by an analog input, in this case a potentiometer. Adjusting the potentiometer influences the segments' illumination, creating various patterns.
+
+<br>
+<br>
+
+**Required Components**:
+
+Microcontroller Board (2): - A microcontroller board Raspberry Pi Pico and a Raspberry Pi Pico W.
+
+7-Segment LED display (1): - A seven-segment LED display module.
+
+Potentiometer (1): - A linear potentiometer with a resistance value suitable for your microcontroller's analog input range (e.g., 10kΩ).
+
+Resistors (17): - 17 resistors (220 Ohms) for current limiting on the LEDs.
+
+Jumper Wires: - A set of jumper wires for connecting components.
+
+Breadboards (2): - A breadboard can be helpful for prototyping and experimenting with the circuit.
+
+LED (1).
+
+Push Buttons (3): - Buttons for selection, pause/resume, and system power control.
+
+OLED Display i2c (128x64) (1): Device used to display the status of the machine.
+
+Water Detector / Sensor (1): Device used to measure the water level on a glass.
+
+10 Segment LED Bar Graph Display: Used to select a water level on the panel.
+
+
+<br>
+<br>
