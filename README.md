@@ -255,6 +255,8 @@ Configures the server with a specified IP address and port, initializes a socket
 
 # Required Components
 
+![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/b2862fc0-b407-4cf9-82e5-5e52704f9ab6)
+
 To implement this project using the specified devices, follow the steps below to configure and connect each component, and then integrate them with the provided code:
 
 Microcontroller Board (2): - A microcontroller board Raspberry Pi Pico and a Raspberry Pi Pico W.
