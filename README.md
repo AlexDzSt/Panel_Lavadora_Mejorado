@@ -255,6 +255,8 @@ Configures the server with a specified IP address and port, initializes a socket
 
 # Required Components
 
+To implement this project using the specified devices, follow the steps below to configure and connect each component, and then integrate them with the provided code:
+
 Microcontroller Board (2): - A microcontroller board Raspberry Pi Pico and a Raspberry Pi Pico W.
 
 7-Segment LED display (1): - A seven-segment LED display module.
