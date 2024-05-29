@@ -1,4 +1,4 @@
-from machine import Pin, UART, I2C
+from machine import Pin, UART, I2C, ADC
 from ssd1306 import SSD1306_I2C
 from digital_timer import DigitalTimer
 from time import sleep
@@ -75,6 +75,13 @@ def show_start() -> None:
     oled.show()
     sleep(2)
     turn_oled_off()
+    
+def show_low_lvl() -> None:
+    oled.fill(0)
+    oled.text("Agua insuficiente", 0, 30)
+    oled.show()
+    sleep(2)
+    turn_oled_off()
 
 def turn_oled_off() -> None:
     oled.fill(0)
@@ -116,8 +123,8 @@ def show_cycle(ciclo: int, mensaje: str) -> None:
 
 def test_wifi() -> None:
     import network
-    ssid = 'INFINITUME850_2.4'
-    password = 'liGyaaCk3B'
+    ssid = 'labred'
+    password = 'labred2017'
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect(ssid, password)
@@ -127,9 +134,9 @@ def test_wifi() -> None:
     print('Connected to Internet!')
     print('IP address:', wlan.ifconfig()[0])
     
-def send_message_to_server(message):
+def send_message_to_server(message) -> None:
     global response2
-    host = '192.168.1.65'  # IP del servidor
+    host = '172.30.5.14'  # IP del servidor
     port = 12345  # Puerto del servidor
 
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -149,4 +156,19 @@ def divide_in_paragraphs(text, length):
     paragraphs = []
     for i in range(0, len(text), length):
         paragraphs.append(text[i:i+length])
-    return paragraphs    
+    return paragraphs  
+
+# Funciones para medir el nivel del agua
+
+sensor_pin = ADC(Pin(26))
+
+def map_value(value, in_min, in_max, out_min, out_max):
+    return (value - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
+
+def medir_nivel_agua(sensor_pin):
+    sensor_value = sensor_pin.read_u16()
+    scaled_value = sensor_value // 100
+    nivel_agua = map_value(scaled_value, 0, 600, 0, 10)
+    if nivel_agua >= 4:  # Nivel máximo
+        return True
+    return False
