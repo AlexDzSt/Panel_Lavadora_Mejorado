@@ -279,6 +279,11 @@ Water Detector / Sensor (1): Device used to measure the water level on a glass.
 
 10 Segment LED Bar Graph Display (1): Used to select a water level on the panel.
 
+<br>
+<br>
 
-<br>
-<br>
+# Conclusion
+
+The project involves creating a simulated washing machine control panel using a network of microcontrollers, primarily focusing on Raspberry Pi Pico and Pico W boards. The implementation includes various components such as a 7-segment LED display, potentiometer, resistors, LEDs, push buttons, an OLED display, a water detector/sensor, and a 10-segment LED bar graph display.
+
+This implementation ensures a comprehensive and interactive control system for a simulated washing machine, demonstrating the integration of multiple components and technologies for an effective user interface and functionality.
