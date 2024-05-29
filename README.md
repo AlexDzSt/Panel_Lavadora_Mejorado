@@ -285,6 +285,8 @@ Water sensor diagram
 
 ![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/5f2d896f-8b46-4eb0-9ec7-dc80141d18c3)
 
+<br>
+
 RotaryLed diagram
 
 ![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/3df4691a-98b7-4583-a4ff-2b8ff341b6db)
