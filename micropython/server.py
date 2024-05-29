@@ -1,23 +1,23 @@
 import socket
 
 def process_message(message):
-    if message == "Ciclo normal" or message == "Ciclo normalCiclo normal" or message == "Ciclo normalCiclo normalCiclo normalCiclo normal":
+    if message == "Lavado Normal":
         return "Lavado estandar con agua tibia"
-    elif message == "Ciclo rapido" or message == "Ciclo rapidoCiclo rapido" or message == "Ciclo rapidoCiclo rapidoCiclo rapido" or message == "Ciclo rapidoCiclo rapidoCiclo rapidoCiclo rapido":
+    elif message == "Ciclo Rapido":
         return "Lavado corto conagua fria"
-    elif message == "Ropa d color" or message == "Ropa d colorRopa d color" or message == "Ropa d colorRopa d colorRopa d color" or message == "Ropa d colorRopa d colorRopa d colorRopa d color":
+    elif message == "Ropa de color":
         return "Recomendado paraproteger colores"
-    elif message == "Ropa blanca " or message == "Ropa blanca Ropa blanca " or message == "Ropa blanca Ropa blanca Ropa blanca " or message == "Ropa blanca Ropa blanca Ropa blanca Ropa blanca ": 
+    elif message == "Ropa Blanca":
         return "Lavado caliente para eliminar   manchas"
-    elif message == "Delicados   " or message == "Delicados   Delicados   " or message == "Delicados   Delicados   Delicados   " or message == "Delicados   Delicados   Delicados   Delicados   ":
+    elif message == "Ciclo delicado":
         return "Lavado suave conagua fria"
-    elif message == "Carga pesada" or message == "Carga pesadaCarga pesada" or message == "Carga pesadaCarga pesadaCarga pesada" or message == "Carga pesadaCarga pesadaCarga pesadaCarga pesada":
+    elif message == "Carga pesada":
         return "Lavado intenso  de agua caliente"
     else:
         return "Ciclo no reconocido"
 
 def start_server():
-    host = '192.168.1.65'  # Cambia esto a la IP de tu servidor
+    host = '172.30.5.14'  # Cambia esto a la IP de tu servidor
     port = 12345  # Escoge un puerto disponible
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
