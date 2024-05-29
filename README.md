@@ -255,8 +255,6 @@ Configures the server with a specified IP address and port, initializes a socket
 
 # Required Components
 
-![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/b2862fc0-b407-4cf9-82e5-5e52704f9ab6)
-
 To implement this project using the specified devices, follow the steps below to configure and connect each component, and then integrate them with the provided code:
 
 Microcontroller Board (2): - A microcontroller board Raspberry Pi Pico and a Raspberry Pi Pico W.
@@ -280,6 +278,17 @@ OLED Display i2c (128x64) (1): Device used to display the status of the machine.
 Water Detector / Sensor (1): Device used to measure the water level on a glass.
 
 10 Segment LED Bar Graph Display (1): Used to select a water level on the panel.
+
+<br>
+
+Water sensor diagram
+
+![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/5f2d896f-8b46-4eb0-9ec7-dc80141d18c3)
+
+RotaryLed diagram
+
+![image](https://github.com/AlexDzSt/Panel_Lavadora_Mejorado/assets/141947909/3df4691a-98b7-4583-a4ff-2b8ff341b6db)
+
 
 <br>
 <br>
