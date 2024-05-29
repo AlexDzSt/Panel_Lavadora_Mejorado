@@ -39,13 +39,56 @@ _Rotary LED Display_
 
 The system includes a rotary LED display consisting of seven segments, which can be controlled by an analog input, in this case a potentiometer. Adjusting the potentiometer influences the segments' illumination, creating various patterns.
 
-
-**Implementation**
-
-<br>
 <br>
 
-**Description of the code**
+# General Implementation Description
+
+This project involves the implementation of a microcontroller-based system that simulates a washing machine control panel, leveraging various components and functionalities such as LEDs, buttons, a rotary LED display, an OLED screen, UART communication, Wi-Fi connectivity, and a server-client architecture.
+
+**Microcontroller Setup and Peripherals Initialization:**
+
+*LEDs and Buttons:*
+
+Multiple LEDs are used to indicate the status of different operations (e.g., power, selection, pause).
+Buttons are configured with pull-up resistors for detecting user inputs, such as powering on/off, selecting a washing cycle, and pausing/resuming operations.
+
+*Rotary LED Display:*
+
+A rotary LED display is controlled using GPIO pins and an ADC to read values from a potentiometer. The display shows different patterns based on the analog input.
+
+*OLED Display:*
+
+An I2C-based OLED screen displays various messages and the current status of the washing machine cycles, such as a welcome message, selected cycle, timer, and completion message.
+
+**Communication Interfaces:**
+
+*UART Communication:*
+
+UART is used for serial communication between the microcontroller and external devices. Messages related to washing cycles are sent and received through the UART interface.
+
+*Wi-Fi Connectivity:*
+
+The system connects to a Wi-Fi network to send and receive data from a server, enabling remote monitoring and control of the washing machine cycles.
+
+*Control Logic:*
+
+Main Control Loop: The main control loop continuously reads the states of the buttons and updates the system status accordingly. It handles the selection of washing cycles, pausing and resuming operations, and triggering the rotary LED display.
+
+Rotary LED Logic: Based on the potentiometer reading, the system determines which segments of the rotary LED display to light up and sends corresponding messages over UART.
+
+Timer and Cycle Management: A digital timer is used to manage the duration of each washing cycle. The remaining time is displayed on the OLED screen, and specific tones are played at the start and end of cycles.
+
+**Server-Client Architecture:**
+
+*Server Implementation:* A server script listens for incoming TCP connections. Upon receiving a message (representing a selected washing cycle), it processes the message to generate a detailed description of the cycle and sends this response back to the client.
+
+*Client-Side Actions:* On the client side, the microcontroller sends messages to the server and displays the received response on the OLED screen. This allows the system to provide detailed information about each washing cycle to the user.
+
+By integrating these components and functionalities, the project effectively simulates the control panel of a washing machine, providing a comprehensive and interactive user experience. The combination of local control (via buttons and rotary LED display) and remote monitoring (via UART and Wi-Fi communication) showcases the versatility and capability of the microcontroller-based system.
+
+<br>
+
+# Description of the code
 
 **Rotary LED Library (crotaryled.c/crotaryled.h)**
 
@@ -165,12 +208,52 @@ This file integrates various peripherals to simulate the functionality of a wash
 
 *divide_in_paragraphs(text, length)*: Divides a given text into paragraphs of specified length for display purposes.
 
+<br>
 
+**Main Panel Script (main_panel.py)**
+
+This script forms the core of the washing machine control panel, enabling user interaction through UART commands, displaying relevant information on the OLED screen, and managing the overall system state.
+
+**Purpose**: This script integrates the main functionalities of the washing machine control panel. It manages UART communication, OLED display interactions, and triggers specific actions based on received UART messages.
+
+**Functionality:**
+
+*UART and OLED Initialization*: The UART is initialized with specified baud rate, TX, and RX pins. The OLED display is initialized using I2C communication.
+
+*Wi-Fi Test*: The script tests the Wi-Fi connection using *actions.test_wifi()*.
+
+*Main Loop*: The main loop continuously checks for incoming data via UART. If data is received, it is decoded and stripped of any surrounding whitespace.
+
+*Data Handling*:
+
+The received data is stored in prev_data to manage the cycle selection and start functionality.
+
+<br>
+
+**Server Script (server.py)**
+
+Run the script to start the server, the server listens on the specified IP and port, processes incoming messages, and sends appropriate responses based on the message content. The server continues to run indefinitely, handling each connection in sequence.
+
+**Purpose**: This script sets up a TCP server to process messages related to washing machine cycles. It listens for incoming connections, processes the received messages, and returns appropriate responses based on the message content.
+
+**Functions and Variables**:
+
+*process_message(message)*: This function takes a message string as input and returns a corresponding response based on predefined washing machine cycles.
+
+*start_server()*: This function sets up the server, listens for incoming connections, and handles message reception and response sending.
+
+**Functionality:**
+
+*process_message(message)*: Maps specific cycle names to their descriptions. Returns the appropriate description for each cycle or a default message if the cycle is not recognized.
+
+*start_server()*:
+
+Configures the server with a specified IP address and port, initializes a socket for TCP communication, binds the socket to the given host and port, listens for incoming connections and processes them in an infinite loop. For each connection, it receives a message from the client, processes the message using *process_message()*, sends the processed response back to the client, handles exceptions that may occur during communication, and closes the client connection after processing.
 
 <br>
 <br>
 
-**Required Components**:
+# Required Components
 
 Microcontroller Board (2): - A microcontroller board Raspberry Pi Pico and a Raspberry Pi Pico W.
 
