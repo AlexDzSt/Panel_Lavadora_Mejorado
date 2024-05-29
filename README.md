@@ -134,6 +134,40 @@ Purpose: Implements the main control logic for simulating a washing machine cont
 This main control program is designed to simulate the control panel of a washing machine, handling user inputs via buttons and providing feedback through LEDs and a rotary LED display. It also includes UART communication for additional control and monitoring capabilities.
 
 <br>
+
+**Actions Library (actions.py)**
+
+This file integrates various peripherals to simulate the functionality of a washing machine control panel, making it a core part of the project's user interface and control logic.
+
+**Purpose**: Provides functions to control and interact with various peripherals and functionalities of the washing machine simulation system, including an OLED display, UART communication, and Wi-Fi connectivity.
+
+**Function Definitions:**
+
+*show_timer(data: str) -> None*: Displays the timer on the OLED based on the selected wash cycle and updates the display every second. Handles the end of the cycle and user interruptions.
+
+*show_welcome() -> None*: Displays a welcome message on the OLED and plays the on tone.
+
+*show_bye() -> None*: Displays a goodbye message on the OLED and plays the off tone.
+
+*show_start() -> None*: Displays a starting cycle message on the OLED.
+
+*turn_oled_off() -> None*: Clears the OLED display.
+
+*read_rotary(data: str) -> None*: Reads the selected cycle from the rotary input and displays the corresponding cycle information.
+
+*show_cycle(ciclo: int, mensaje: str) -> None*: Displays the cycle duration and message on the OLED, sends the message to the server, and handles the server response.
+
+**Server Interaction Functions:**
+
+*test_wifi() -> None*: Connects to a specified Wi-Fi network and prints the IP address once connected.
+
+*send_message_to_server(message)*: Sends a message to a specified server and stores the response.
+
+*divide_in_paragraphs(text, length)*: Divides a given text into paragraphs of specified length for display purposes.
+
+
+
+<br>
 <br>
 
 **Required Components**:
